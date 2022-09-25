@@ -71,4 +71,19 @@ exports.updateByUsername = (req, res)=>{
 }
 
 
+// delete controllers
 
+exports.deleteById = (req, res)=>{
+    const id = req.params.id;
+    const isDeleted = ticketCollection.deleteById(id)
+    if(isDeleted){
+        res.status(204).send()
+    }
+    res.status(400).json({message: 'Delete oparation failed'})
+}
+
+exports.deleteByUsername = (req, res) =>{
+    const username = req.params.username;
+    ticketCollection.deleteBulk(username)
+    res.status(204).send();
+}
