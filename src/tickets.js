@@ -86,8 +86,10 @@ class TicketCollection {
      */
     updateById(ticketId, TicketBody){
         const ticket = this.findById(ticketId)
-        ticket.username = TicketBody.username ?? ticket.username
-        ticket.price = TicketBody.price ?? ticket.price
+        if(ticket){
+            ticket.username = TicketBody.username ?? ticket.username
+            ticket.price = TicketBody.price ?? ticket.price
+        }
 
         return ticket;
     }

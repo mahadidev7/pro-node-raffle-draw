@@ -50,4 +50,25 @@ exports.findByUsername = (req, res) =>{
     })
 }
 
+// updata controllers
+
+exports.updateById = (req, res)=> {
+    const id = req.params.id;
+    const ticket = ticketCollection.updateById(id, req.body)
+    if(!ticket){
+        return res.status(404).json({message: '404 not found' })
+    }
+    res.status(200).json(ticket);
+}
+
+exports.updateByUsername = (req, res)=>{
+    const username = req.params.username;
+    const tickets = ticketCollection.updateBulk(username, req.body)
+    res.status(200).json({
+        total: tickets.length,
+        items: tickets
+    })
+}
+
+
 
