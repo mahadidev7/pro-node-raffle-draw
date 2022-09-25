@@ -149,6 +149,33 @@ class TicketCollection {
         )
         return deletedResult;
     }
+
+    /**
+     * 
+     * @param {number} winnerCount
+     * @return {Ticket[]}
+     */
+    drow(winnerCount){
+        const winnerIndexes = new Array(winnerCount)
+        
+        let winnerIndex = 0;
+        while(winnerIndex < winnerCount){
+            let ticketIndex = Math.floor(Math.random() * this[tickets].length);
+            if(!winnerIndexes.includes(ticketIndex)){
+                winnerIndexes[winnerIndex++] = ticketIndex;
+                continue
+            }
+        }
+
+        const winners = winnerIndexes.map(
+            /**
+             * @param {number} index
+             */
+            (index) => this[tickets][index]
+        );
+        return winners
+
+    }
 }
 
 const collection = new TicketCollection()
