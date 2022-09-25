@@ -22,6 +22,22 @@ class TicketCollection {
     }
 
     /**
+     * 
+     * @param {string} username 
+     * @param {number} price 
+     * @param {number} quantity 
+     * @return {Ticket[]}
+     */
+    createBulk(username, price, quantity){
+        const result = []
+        for (let i =0; i< quantity; i++){
+            const ticket = this.create(username, price)
+            result.push(ticket);
+        }
+        return result;
+    }
+
+    /**
      * return all tickets from db
      */
     find(){
@@ -77,8 +93,27 @@ class TicketCollection {
     }
 
     /**
+     * bulk update by username
+     * @param {string} username 
+     * @param {{username: string, price: number}} ticketBody 
+     * @return {Ticket[]}
+     */
+    updateBulk(username, ticketBody){
+        const userTickets = this.findByUsername(username)
+        const updatedTickets = userTickets.map(
+            /**
+             * 
+             * @param {Ticket} ticket 
+             */
+            (ticket) => this.updateById(ticket.id, ticketBody)
+        )
+
+        return updatedTickets;
+    }
+
+    /**
      * 
-     * @param {string} ticketId 
+     * @param {number} ticketId 
      * @return {boolean}
      */
     deletById(ticketId){
@@ -95,6 +130,24 @@ class TicketCollection {
             this[tickets].splice(index, 1)
             return true;
         }
+    }
+
+    /**
+     * 
+     * @param {string} username 
+     * @returns {boolean[]}
+     */
+    deleteBulk(username){
+        const userTickets = this.findByUsername(username)
+        const deletedResult = userTickets.map(
+            /**
+             * 
+             * @param {Ticket} ticket 
+             * @returns 
+             */
+            (ticket) => this.deletById(ticket.id)
+        )
+        return deletedResult;
     }
 }
 
