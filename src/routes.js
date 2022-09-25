@@ -1,16 +1,16 @@
 const router = require('express').Router()
-const {sellBulkTicket, sellSingleTricket} = require('./controllers')
+const {sellBulkTicket, sellSingleTricket, findAll, findById, findByUsername} = require('./controllers')
 
 // ticket route
-router.route('/t/:id').get().put().delete()
+router.route('/t/:id').get(findById).put().delete()
 // user route
-router.route('/u/:username').get().put().delete()
+router.route('/u/:username').get(findByUsername).put().delete()
 
 router.post('/bulk', sellBulkTicket)
 router.get('/draw')
 
 // root route 
-router.route('/').get().post(sellSingleTricket)
+router.route('/').get(findAll).post(sellSingleTricket)
 
 
 module.exports = router
