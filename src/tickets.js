@@ -6,7 +6,9 @@ const tickets = Symbol('tickets')
 
 class TicketCollection {
     constructor(){
-        this[tickets] = []
+        (async function () {
+            this[tickets] = await readFile();
+        }.bind(this));
     }
 
     /**
@@ -17,7 +19,8 @@ class TicketCollection {
      */
     create(username, price){
         const ticket = new Ticket(username, price)
-        this[tickets].push(ticket)
+        this[tickets].push(ticket);
+        writeFile(this[tickets])
         return tickets;
     }
 
@@ -33,7 +36,8 @@ class TicketCollection {
         for (let i =0; i< quantity; i++){
             const ticket = this.create(username, price)
             result.push(ticket);
-        }
+        };
+        writeFile(this[tickets])
         return result;
     }
 
@@ -89,8 +93,9 @@ class TicketCollection {
         if(ticket){
             ticket.username = TicketBody.username ?? ticket.username
             ticket.price = TicketBody.price ?? ticket.price
-        }
+        };
 
+        writeFile(this[tickets])
         return ticket;
     }
 
@@ -108,8 +113,9 @@ class TicketCollection {
              * @param {Ticket} ticket 
              */
             (ticket) => this.updateById(ticket.id, ticketBody)
-        )
+        );
 
+        writeFile(this[tickets])
         return updatedTickets;
     }
 
@@ -129,7 +135,8 @@ class TicketCollection {
         if(index === -1){
             return false;
         }else {
-            this[tickets].splice(index, 1)
+            this[tickets].splice(index, 1);
+            writeFile(this[tickets])
             return true;
         }
     }
@@ -148,7 +155,8 @@ class TicketCollection {
              * @returns 
              */
             (ticket) => this.deletById(ticket.id)
-        )
+        );
+        writeFile(this[tickets])
         return deletedResult;
     }
 

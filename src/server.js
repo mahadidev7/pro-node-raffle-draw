@@ -6,6 +6,8 @@ const port = process.env.PORT || 4000;
 // mediaWare
 app.use([morgan('dev'), cors(), express.json()])
 
+app.use('/api/v1/tickets', require('./routes'))
+
 app.get('/health', (_req, res)=>{
     res.status(200).json({message: 'Success'})
 })
