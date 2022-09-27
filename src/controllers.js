@@ -25,10 +25,12 @@ exports.sellBulkTicket = (req, res) => {
 
 exports.findAll = (req, res) => {
     const tickets = ticketCollection.find()
+    console.log(tickets);
     res.status(200).json({
         total: tickets.length,
         items: tickets
     })
+    
 }
 
 
@@ -42,7 +44,7 @@ exports.findById = (req, res)=>{
 }
 
 exports.findByUsername = (req, res) =>{
-    const username = req.params.usename;
+    const username = req.params.username;
     const tickets = ticketCollection.findByUsername(username)
     res.status(200).json({
         total: tickets.length,
@@ -75,9 +77,9 @@ exports.updateByUsername = (req, res)=>{
 
 exports.deleteById = (req, res)=>{
     const id = req.params.id;
-    const isDeleted = ticketCollection.deleteById(id)
+    const isDeleted = ticketCollection.deletById(id)
     if(isDeleted){
-        res.status(204).send()
+        res.status(204).json({message: 'Delete oparation success'})
     }
     res.status(400).json({message: 'Delete oparation failed'})
 }
