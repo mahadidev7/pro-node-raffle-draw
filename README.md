@@ -2,11 +2,10 @@
 # CURD Features makes
 This is a Raffle Draw Express project
 
-### Node.js
-### Express.js
+* Node.js
+* Express.js
 
 <br />
-<hr />
 <br />
 
 ### CREATE TICKET
@@ -27,48 +26,48 @@ This is a Raffle Draw Express project
 
 ### READ TICKETS
 ```
-#### URL: 127.0.0.1:4000/api/v1/tickets   ---GET request
+ URL: 127.0.0.1:4000/api/v1/tickets   ---GET request
 
 ```
 
 ### TICKET READ BY ID
 ```
-#### URL: 127.0.0.1:4000/api/v1/tickets/t/${Ticket_ID}   ---GET request
+ URL: 127.0.0.1:4000/api/v1/tickets/t/${Ticket_ID}   ---GET request
 
 ```
 
 ### USER READ BY userName
 
 ```
-#### URL: 127.0.0.1:4000/api/v1/tickets/u/${usernmae}   ---GET request
+ URL: 127.0.0.1:4000/api/v1/tickets/u/${usernmae}   ---GET request
 
 ```
 
 ### DELETE TICKET BY ID
 ```
 
-#### URL: 127.0.0.1:4000/api/v1/tickets/t/${Ticket_ID}   ---DELETE request
+ URL: 127.0.0.1:4000/api/v1/tickets/t/${Ticket_ID}   ---DELETE request
 
 ```
 
 ### DELETE USER BY username
 ```
 
-#### URL: 127.0.0.1:4000/api/v1/tickets/u/${usernmae}   ---DELETE request
+ URL: 127.0.0.1:4000/api/v1/tickets/u/${usernmae}   ---DELETE request
 
 ```
 
 ### UPDATE TICKET BY ID
 ```
 
-#### URL: 127.0.0.1:4000/api/v1/tickets/t/${Ticket_ID}   ---put request
+ URL: 127.0.0.1:4000/api/v1/tickets/t/${Ticket_ID}   ---put request
 
 ```
 
 ### BULK ROUTE (multipul ticket buy)
 ```
 
-#### URL: 127.0.0.1:4000/api/v1/tickets/bulk   ---POST request
+ URL: 127.0.0.1:4000/api/v1/tickets/bulk   ---POST request
 
 ```
  Body :
@@ -84,7 +83,7 @@ This is a Raffle Draw Express project
 ### WINNER ROUTE BY query
 ```
 
-#### URL: 127.0.0.1:4000/api/v1/tickets//draw?wc=${winner_number}   ---GET request
+ URL: 127.0.0.1:4000/api/v1/tickets//draw?wc=${winner_number}   ---GET request
 
 ```
 
