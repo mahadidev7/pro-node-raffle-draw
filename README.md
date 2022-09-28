@@ -88,7 +88,7 @@ This is a Raffle Draw Express project
   }
  ```
 
-### WINNER ROUTE BY query
+### WINNER TICKET BY query
 ```
 
  URL: 127.0.0.1:4000/api/v1/tickets//draw?wc=${winner_number}   ---GET request
