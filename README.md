@@ -1,6 +1,6 @@
 
-# CURD Features makes
-This is a Raffle Draw Express project
+# This is a Raffle Draw Express project
+# ADD CURD Feature
 
 * Node.js
 * Express.js
