@@ -63,6 +63,14 @@ This is a Raffle Draw Express project
  URL: 127.0.0.1:4000/api/v1/tickets/t/${Ticket_ID}   ---put request
 
 ```
+ Body :
+  ```
+  {
+    "username": ${update_name},
+    "price": ${update_price}
+  }
+ ```
+ 
 
 ### BULK ROUTE (multipul ticket buy)
 ```
