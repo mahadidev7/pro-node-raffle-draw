@@ -87,7 +87,7 @@ exports.deleteById = (req, res)=>{
 exports.deleteByUsername = (req, res) =>{
     const username = req.params.username;
     ticketCollection.deleteBulk(username)
-    res.status(204).send();
+    res.status(204).send("User Delete Successfull");
 }
 
 exports.drawWinners = (req, res) => {

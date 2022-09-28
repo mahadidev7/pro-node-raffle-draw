@@ -136,7 +136,7 @@ class TicketCollection {
             return false;
         }else {
             this[tickets].splice(index, 1);
-            writeFile(this[tickets])
+            // writeFile(this[tickets])
             return true;
         }
     }
@@ -147,7 +147,8 @@ class TicketCollection {
      * @returns {boolean[]}
      */
     deleteBulk(username){
-        const userTickets = this.findByUsername(username)
+
+        const userTickets = this.findByUsername(username) // all date of user- []
         const deletedResult = userTickets.map(
             /**
              * 
@@ -157,7 +158,7 @@ class TicketCollection {
             (ticket) => this.deletById(ticket.id)
         );
         writeFile(this[tickets])
-        return deletedResult;
+        // return deletedResult;
     }
 
     /**
