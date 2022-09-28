@@ -1,6 +1,6 @@
 
 ### This is a Raffle Draw Express project
-### ADD CURD Feature
+### ADDED CURD Feature
 
 * Node.js
 * Express.js
